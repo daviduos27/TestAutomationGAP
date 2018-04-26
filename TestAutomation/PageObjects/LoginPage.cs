@@ -36,28 +36,23 @@ namespace TestAutomation.PageObjects
             driver.Navigate().GoToUrl("http://vacations-management.herokuapp.com/users/sign_in");
         }
 
-        public void writeName(String key)
+        public void loginAction(String key)
         {
             var userData = ExcelDataAccess.GetTestData(key);
 
             inputName.Clear();
-            inputName.SendKeys(userData.User);
-        }
-
-        public void writePass(String pass)
-        {
+            inputName.SendKeys(userData.Email);
             inputPassword.Clear();
-            inputPassword.SendKeys(pass);
+            inputPassword.SendKeys(userData.Pass);
         }
 
         public void clickOnbtnSubmit()
         {
-            btnSubmit.Click();
+            btnSubmit.Submit();
         }
 
         public bool checkTitle(String title)
         {
-            
             return lblTitle.Text.Equals(title);
         }
 

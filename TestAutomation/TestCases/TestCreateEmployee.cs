@@ -10,7 +10,7 @@ using TestAutomation.PageObjects;
 
 namespace TestAutomation
 {
-    class TestClass
+    class TestCreateEmployee
     {
         private IWebDriver driver;
 
@@ -21,18 +21,7 @@ namespace TestAutomation
             driver.Manage().Window.Maximize();
         }
 
-        /*[Test]
-        public void LoginSucces()
-        {
-            LoginPage login = new LoginPage(driver);
-            login.goToPage();
-            login.writeName("gap-automation-test@mailinator.com");
-            login.writePass("12345678");
-            login.clickOnbtnSubmit();
-            Assert.AreEqual(true, login.checkTitle("Signed in successfully."));
-                      
-        }*/
-
+        
         [Test]
         public void CreateNewEmployee()
         {
@@ -40,17 +29,16 @@ namespace TestAutomation
             LoginPage login = new LoginPage(driver);
             login.goToPage();
             //ARRANGE
-            login.writeName("Default");
-            login.writePass("12345678");
+            login.loginAction("User");
             login.clickOnbtnSubmit();
             //ASSERT
             Assert.AreEqual(true, login.checkTitle("Signed in successfully."));
 
-            NewEmployeePage newEpmloyee = login.goToNewEmployee();
-            newEpmloyee.fillForm("angel","peña","a@test.com", "1222333444", "Nelson Duarte", "2014", "January", "24");
-            newEpmloyee.clickOnbtnSubmit();
+            NewEmployeePage newEmployee = login.goToNewEmployee();
+            newEmployee.fillFormAction("Employee");
+            newEmployee.clickOnbtnSubmit();
 
-            Assert.AreEqual(true, newEpmloyee.checkTitle("Employee was successfully created."));
+            Assert.AreEqual(true, newEmployee.checkTitle("Employee was successfully created."));
         }
 
         [TearDown]

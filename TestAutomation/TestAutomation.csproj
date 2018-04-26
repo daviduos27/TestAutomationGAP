@@ -98,10 +98,12 @@
   <ItemGroup>
     <Compile Include="DataAccess\ExcelDataAccess.cs" />
     <Compile Include="DataAccess\UserData.cs" />
+    <Compile Include="PageObjects\CheckEmployee.cs" />
     <Compile Include="PageObjects\NewEmployeePage.cs" />
-    <Compile Include="TestCases\TestClass.cs" />
+    <Compile Include="TestCases\TestCheckEmployee.cs" />
+    <Compile Include="TestCases\TestLoginSuccess.cs" />
+    <Compile Include="TestCases\TestCreateEmployee.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
-    <Compile Include="UITest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

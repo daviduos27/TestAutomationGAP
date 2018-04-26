@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestAutomation.DataAccess;
 
 namespace TestAutomation.PageObjects
 {
@@ -45,31 +46,34 @@ namespace TestAutomation.PageObjects
 
      
 
-        public void fillForm(String fname,String lname,String email, String id, String leaderName, String year,String month,String day)
+        public void fillFormAction(String key)
         {
+
+            var userData = ExcelDataAccess.GetTestData(key);
+
             inputFirstName.Clear();
-            inputFirstName.SendKeys(fname);
+            inputFirstName.SendKeys(userData.FirstName);
 
             inputLastName.Clear();
-            inputLastName.SendKeys(lname);
+            inputLastName.SendKeys(userData.LastName);
 
             inputEmail.Clear();
-            inputEmail.SendKeys(email);
+            inputEmail.SendKeys(userData.Email);
 
             inputID.Clear();
-            inputID.SendKeys(id);
+            inputID.SendKeys(userData.ID);
 
             inputLeaderName.Clear();
-            inputLeaderName.SendKeys(leaderName);
+            inputLeaderName.SendKeys(userData.LeaderName);
 
             var yearSelect = new SelectElement(dpdYear);
-            yearSelect.SelectByValue(year);
+            yearSelect.SelectByValue(userData.Year);
 
             var monthSelect = new SelectElement(dpdMonth);
-            monthSelect.SelectByText(month);
+            monthSelect.SelectByText(userData.Month);
 
             var daySelect = new SelectElement(dpdDay);
-            daySelect.SelectByValue(day);
+            daySelect.SelectByValue(userData.Day);
         }
 
         
