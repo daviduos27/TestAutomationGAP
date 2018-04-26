@@ -39,6 +39,7 @@ namespace TestAutomation.PageObjects
         public void writeName(String key)
         {
             var userData = ExcelDataAccess.GetTestData(key);
+
             inputName.Clear();
             inputName.SendKeys(userData.User);
         }
