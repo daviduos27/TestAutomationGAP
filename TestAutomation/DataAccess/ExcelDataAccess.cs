@@ -1,12 +1,7 @@
 ﻿using Dapper;
-using System;
 using System.Configuration;
-using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 
 namespace TestAutomation.DataAccess

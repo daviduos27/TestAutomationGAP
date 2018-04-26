@@ -3,9 +3,9 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TestAutomation.PageObjects;
 
-namespace TestAutomation
+namespace TestAutomation.TestCases
 {
-    class TestCreateEmployee
+    class TestDeleteEmployee
     {
         private IWebDriver driver;
 
@@ -16,9 +16,9 @@ namespace TestAutomation
             driver.Manage().Window.Maximize();
         }
 
-        
+
         [Test]
-        public void CreateNewEmployee()
+        public void DeleteEmployee()
         {
             //SETUP
             LoginPage login = new LoginPage(driver);
@@ -29,11 +29,14 @@ namespace TestAutomation
             //ASSERT
             Assert.AreEqual(true, login.checkTitle("Signed in successfully."));
 
-            NewEmployeePage newEmployee = login.goToNewEmployee();
-            newEmployee.fillFormAction("Employee");
-            newEmployee.clickOnbtnSubmit();
+            DeleteEmployee deleteEmployee = login.goToDeleteEmployee();
+            deleteEmployee.waitAction();
+            deleteEmployee.deleteAction("Employee");
+            deleteEmployee.acceptConfirmAction();
 
-            Assert.AreEqual(true, newEmployee.checkTitle("Employee was successfully created."));
+            Assert.AreEqual(false, deleteEmployee.searchAction("Employee"));
+
+            
         }
 
         [TearDown]

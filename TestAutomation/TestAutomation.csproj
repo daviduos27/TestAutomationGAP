@@ -99,7 +99,9 @@
     <Compile Include="DataAccess\ExcelDataAccess.cs" />
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="PageObjects\CheckEmployee.cs" />
+    <Compile Include="PageObjects\DeleteEmployee.cs" />
     <Compile Include="PageObjects\NewEmployeePage.cs" />
+    <Compile Include="TestCases\TestDeleteEmployee.cs" />
     <Compile Include="TestCases\TestCheckEmployee.cs" />
     <Compile Include="TestCases\TestLoginSuccess.cs" />
     <Compile Include="TestCases\TestCreateEmployee.cs" />
